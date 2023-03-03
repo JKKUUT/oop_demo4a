@@ -6,7 +6,7 @@ public class VirtuaalinenTuote extends Tuote {
 
     @Override
     public int getSaldo() {
-        // Palauttaa aina luvun 1000, koska tuotetta on 
+        // Palauttaa aina luvun 1000, koska tuotetta on
         // aina varastossa riittävästi mihin tahansa
         // tilaukseen
         return 1000;

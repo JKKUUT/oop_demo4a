@@ -40,6 +40,9 @@ public class Myyja {
             this.provisiot += provisio;
         }
     }
+
+    @Override
+    public String toString() {
+        return nimi + ", tunniste: " + tunniste + ", Provisiot: " + provisiot;
+    }
 }
-
-

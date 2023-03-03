@@ -149,7 +149,6 @@ public class Verkkokauppa {
         return null;
     }
 
-
     /**
      * Palauttaa kaikki asiakkaat yhtenä merkkijonona.
      *
@@ -232,5 +231,22 @@ public class Verkkokauppa {
         }
         return s.toString();
 
+    }
+
+    // metodit listojen hakuun
+    public ArrayList<Asiakas> getAsiakasLista() {
+        return asiakkaat;
+    }
+
+    public ArrayList<Myyja> getMyyjaLista() {
+        return myyjat;
+    }
+
+    public ArrayList<Tuote> getTuoteLista() {
+        return tuotteet;
+    }
+
+    public ArrayList<Ostotapahtuma> getTapahtumaLista() {
+        return tapahtumat;
     }
 }

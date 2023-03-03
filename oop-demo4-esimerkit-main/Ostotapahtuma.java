@@ -6,7 +6,7 @@ public class Ostotapahtuma {
     private double hinta;
 
     public Ostotapahtuma(Asiakas asiakas, Myyja myyja,
-                         Tuote tuote, int maara) {
+            Tuote tuote, int maara) {
         this.asiakas = asiakas;
         this.myyja = myyja;
         this.tuote = tuote;
@@ -35,5 +35,10 @@ public class Ostotapahtuma {
 
     public double getHinta() {
         return hinta;
+    }
+
+    @Override
+    public String toString() {
+        return "Asiakas: " + asiakas + " / Myyjä: " + myyja + " / Tuote: " + tuote + " / Määrä: " + maara;
     }
 }

@@ -1,8 +1,8 @@
-public class KantaAsiakas extends Asiakas{
+public class KantaAsiakas extends Asiakas {
     private int alennusprosentti;
 
     public KantaAsiakas(String asiakasNumero, String nimi,
-                        double ostojaTehty, int alennusprosentti) {
+            double ostojaTehty, int alennusprosentti) {
         super(asiakasNumero, nimi, ostojaTehty);
         this.alennusprosentti = alennusprosentti;
     }
@@ -20,4 +20,5 @@ public class KantaAsiakas extends Asiakas{
     public String toString() {
         return super.toString() + ", alennusprosentti: " + alennusprosentti;
     }
+
 }

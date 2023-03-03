@@ -56,4 +56,3 @@ public class Tuote implements Serializable {
         return nimi + " (" + hinta + " euroa), saldo: " + saldo;
     }
 }
-

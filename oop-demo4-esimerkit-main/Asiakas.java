@@ -4,7 +4,7 @@ public class Asiakas {
     private double ostojaTehty;
 
     public Asiakas(String asiakasNumero, String nimi,
-                   double ostojaTehty) {
+            double ostojaTehty) {
         this.asiakasNumero = asiakasNumero;
         this.nimi = nimi;
         this.ostojaTehty = ostojaTehty;

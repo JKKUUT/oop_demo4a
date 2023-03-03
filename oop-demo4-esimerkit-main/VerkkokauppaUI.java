@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class VerkkokauppaUI {
     private Verkkokauppa verkkokauppa;
@@ -7,6 +8,14 @@ public class VerkkokauppaUI {
     public static void main(String[] args) {
         VerkkokauppaUI ui = new VerkkokauppaUI();
         ui.aloita();
+        // Alla oleva on tiedostojen lataamista varten.
+        // Luodaan ensin tiedostot, sillä ne ovat ensimmäisellä avauskerralla tyhjiä
+
+        VerkkokauppaIO.lueAsiakkaat("asiakkaat.csv");
+        VerkkokauppaIO.lueMyyjat("myyjat.csv");
+        // VerkkokauppaIO.lueTuotteet("tuotteet.csv");
+        VerkkokauppaIO.lueTapahtumat("tapahtumat.csv");
+
     }
 
     public VerkkokauppaUI() {
@@ -15,6 +24,7 @@ public class VerkkokauppaUI {
     }
 
     public void aloita() {
+
         int valinta = -1; // joku muu kuin 0
         while (valinta != 0) {
             tulostaMenu();
@@ -29,13 +39,20 @@ public class VerkkokauppaUI {
                 ostotapahtumaMenu(); // ei vielä toteutettu...
             }
         }
+        if (valinta == 0) {
+            if (valinta == 0) {
+                VerkkokauppaIO.kirjoitaAsiakkaat(verkkokauppa.getAsiakasLista(), "asiakkaat.csv");
+                VerkkokauppaIO.kirjoitaMyyjat(verkkokauppa.getMyyjaLista(), "myyjat.csv");
+                VerkkokauppaIO.kirjoitaTuotteet(verkkokauppa.getTuoteLista(), "tuotteet.csv");
+                VerkkokauppaIO.kirjoitaOstotapahtumat(verkkokauppa.getTapahtumaLista(), "tapahtumat.csv");
+            }
+        }
     }
-
-
 
     private void asiakasMenu() {
         int valinta = -1;
         while (valinta != 0) {
+
             System.out.println(verkkokauppa.listaaAsiakkaat());
             System.out.println();
             System.out.println("1. Lisää asiakas");
@@ -85,7 +102,7 @@ public class VerkkokauppaUI {
             System.out.println("4. Muuta hintaa");
             System.out.println("0. Poistu");
 
-            valinta = lueKokonaisluku(0, 4,"Anna valinta");
+            valinta = lueKokonaisluku(0, 4, "Anna valinta");
             if (valinta == 1) {
                 String nimi = lueMerkkijono("Nimi");
                 double hinta = lueDesimaaliluku(0, Tuote.MAKSIMIHINTA, "Anna hinta");
@@ -126,7 +143,9 @@ public class VerkkokauppaUI {
                     System.out.println("Tuotetta ei löytynyt.");
                 }
             }
+
         }
+
     }
 
     private void myyjaMenu() {
@@ -172,14 +191,13 @@ public class VerkkokauppaUI {
         System.out.println("0. Poistu");
     }
 
-
     /**
      * Lukee käyttäjältä syötteen ja palauttaa sen kokonaislukuna.
      * Kokonaisluvun tulee olla annetun minimi ja maksimiarvon välissä.
      *
      * @param minimi  pienin sallittu arvo
      * @param maksimi suurin sallittu arvo
-     * @param kehote käyttäjälle näytetty kehote
+     * @param kehote  käyttäjälle näytetty kehote
      * @return käyttäjän syötteen kokonaislukuna
      */
     private int lueKokonaisluku(int minimi, int maksimi, String kehote) {
@@ -204,7 +222,7 @@ public class VerkkokauppaUI {
      *
      * @param minimi  pienin sallittu arvo
      * @param maksimi suurin sallittu arvo
-     * @param kehote käyttäjälle näytetty kehote
+     * @param kehote  käyttäjälle näytetty kehote
      * @return käyttäjän syötteen liukulukuna
      */
     private double lueDesimaaliluku(double minimi, double maksimi, String kehote) {
