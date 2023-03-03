@@ -8,7 +8,7 @@ public class VerkkokauppaIO {
             for (Asiakas asiakas : asiakkaat) {
                 if (asiakas instanceof KantaAsiakas) {
                     KantaAsiakas kantaasiakas = (KantaAsiakas) asiakas;
-                    kirjoittaja.println(kantaasiakas.getNimi() + ";" + kantaasiakas.getOsoite() + ";" + kantaasiakas.getAlennusProsentit());
+                    kirjoittaja.println(kantaasiakas.getNimi() + ";" + kantaasiakas.getOsoite() + ";" + kantaasiakas.getAlennusprosentti());
                 } else {
                     kirjoittaja.println(asiakas.getNimi() + ";" + asiakas.getOsoite());
                 }
